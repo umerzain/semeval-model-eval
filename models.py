@@ -141,12 +141,12 @@ def validate_transformers_dependency(key):
 
     repair = (
         f"Loaded Transformers {transformers.__version__} from {transformers.__file__}. "
-        "In Kaggle run: %pip install --upgrade 'transformers>=5.13.0,<6' "
+        "In Kaggle run: %pip install --upgrade 'transformers>=4.37.0,<6' "
         "'bitsandbytes>=0.46.1' accelerate. Restart the notebook kernel if Transformers "
         "was already imported, then rerun the token setup and inference cells."
     )
-    if Version(transformers.__version__) < Version("5.13.0"):
-        raise RuntimeError("This pipeline requires Transformers>=5.13.0. " + repair)
+    if Version(transformers.__version__) < Version("4.37.0"):
+        raise RuntimeError("This pipeline requires Transformers>=4.37.0. " + repair)
     architecture = {
         "gemma_4_12b": "gemma4_unified", "qwen3_8_27b": "qwen3_5",
         "qwen3_vl_8b": "qwen3_vl", "internvl3_5_4b": "internvl",
